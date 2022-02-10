@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/druzyna.css">
+</head>
+
+<body>
+  <section class="first">
+    <div>
+      <h2>Dołącz do teamu</h2>
+      <form class="" action="" method="post" autocomplete="off">
+        <button type="submit" name="submit">Dołącz</button>
+      </form>
+      <br>
+      <a href="index.html">Home</a>
+    </div>
+  </section>
+  <section class="second">
+    <?php
+        $result = $conn -> query("SELECT * FROM informacje WHERE id_druzyna='".$id_d."'");
+        while ($row = $result -> fetch_assoc())
+        {
+          echo"       
+          <div class='c2'>
+          <h3>".$row['nick']."</h3>
+          <h3>".$row['wiek']."</h3>
+        </div>";};
+        ?>
+  </section>
+</body>
+
+</html>

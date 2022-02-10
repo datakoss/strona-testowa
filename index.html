@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2? family=Comfortaa&family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="menu">
+      <ul class="clearfix">
+        <li>
+          <div class="logo">
+            <p><a href="#streams">BS Leauge</a></p>
+          </div>
+        </li>
+        <li><a href="#liga">liga</a></li>
+        <li><a href="#aktualnosci">aktualności</a></li>
+        <li><a href="#znajdzgracza">znajdź gracza</a></li>
+        <li><a href="#znajdzteam">znajdź team</a></li>
+        <li><a href="#discord">discord</a></li>
+        <li><a href="#regulamin">regulamin</a></li>
+        <li><a href="#kontakt">kontakt</a></li>
+        <div class="zaloguj">
+          <h1><a href="strona.html"><?php echo $row["name"]; ?></a></h1>
+        </div>
+        <div class="zarejestruj">
+          <a href="logout.php">Logout</a>
+        </div>
+      </ul>
+    </nav>
+    <section id="streams">
+      <div class="stream clearfix">
+        <h1>
+          Stream
+        </h1>
+        <div>
+          <iframe src="https://www.youtube.com/embed/UOfPQ7c8UF4?controls=0" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    <section id="liga">
+      <div class="liga clearfix">
+        <h1>Liga</h1>
+        <div class="liga1">
+          <h2>Kwalifikacje</h2>
+          <p>Zapraszamy do wzięcia udziału w kwalifikacjach gdzie wraz z twoją drużyną możesz zakwalifikować do głównej ligi i walczyć o główną nagrode.</p>
+          <button>Czytaj dalej</button>
+        </div>
+        <div class="liga1">
+          <h2>Tabela</h2>
+          <p>W tabeli możesz podejrzeć statystyki zawodników biorących udział w lidze, punktacje drużyn i mvp zawodników.</p>
+          <button>Czytaj dalej</button>
+        </div>
+        <div class="liga1">
+          <h2>Streamerzy</h2>
+          <p>Wbijajcie do naszych streamerów który kometują na żywo mecze ligowe gdzie zawodnicy walczą o prestiżowy tytuł drużyny w BS Leauge.</p>
+          <button>Czytaj dalej</button>
+        </div>
+        <div class="liga1">
+          <h2>Drużyny</h2>
+          <p>Tutaj możesz sprawdzić jakie drużyny biorą udział w lidze, którym możesz kibicować wraz z nimi oraz zawodnicy z poszczególnych drużyn, którym może kibicujesz.</p>
+          <button>Czytaj dalej</button>
+        </div>
+        <div class="liga1">
+          <h2>Termin meczy</h2>
+          <p>W tej zakładce możesz sprawdzić terminy meczy, żeby przygotować swój czas obejrzenie meczy lub przygotowanie sie do nich w dniu ich rozegrania.</p>
+          <button>Czytaj dalej</button>
+        </div>
+        <div class="liga1">
+          <h2>Playoffy</h2>
+          <p>To już ostatni przystanek do którego zbliża się liga o wyłonienie najlepszej drużyny z ligi wraz z prestiżem który zyskają.</p>
+          <button>Czytaj dalej</button>
+        </div>
+      </div>
+    </section>
+    <section id="aktualnosci">
+      <div class="aktualnosci">
+        <h1>Aktualności</h1>
+        <div class="b1">
+          <img src="img/hobby1.jpg" alt="b1">
+          <h2>Kwalifikacje dzień 1</h2>
+          <p>Pierwszy dzień kwalifikacji pokazał kto jest na fali i ma już zagwarantowane miejsce w lidze.</p>
+        </div>
+        <div class="b1">
+          <img src="img/hobby1.jpg" alt="b2">
+          <h2>Kwalifikacje dzień 2</h2>
+          <p>Drugi dzień kwalifikacji jest wielkim zaskoczeniem po dniu pierwszym co do drużyn.</p>
+        </div>
+        <div class="b1">
+          <img src="img/hobby1.jpg" alt="b3">
+          <h2>Kwalifikacje dzień 3</h2>
+          <p>Trzeci dzień kwalifikacji pieczętuje ósemke dróżyn ,która załapała sie do głównej ligi.</p>
+        </div>
+      </div>
+    </section>
+    <section id="znajdzgracza">
+      <div class="znajdzgracza clearfix">
+        <h1>Znajdź gracza</h1>
+        <div class="filtrowanie">
+          <h2>Filtrowanie</h2>
+          <input type="text" placeholder="Wiek">
+          <input type="text" placeholder="Ranga">
+          <input type="text" placeholder="Pozycja">
+          <button>Szukaj</button>
+        </div>
+        <div class="c1">
+          <?php
+        require("config.php");
+        $result = $conn -> query("SELECT * FROM informacje ");
+        while ($row = $result -> fetch_assoc())
+        {
+          echo"       
+          <div class='c2'>
+          <img src='img/hobby1.jpg' alt=''>
+          <h3>".$row['nick']."</h3>
+          <p>".$row['wiek']."</p>
+          <p>".$row['ranga']."</p>
+          <p>".$row['pozycja']."</p>
+        </div>";};
+        ?>
+          <!--
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="c2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nick</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+-->
+        </div>
+      </div>
+    </section>
+    <section id="znajdzteam">
+      <div class="znajdzteam">
+        <h1>Znajdź team</h1>
+        <div class="filtrowanie">
+          <h2>Filtrowanie</h2>
+          <input type="text" placeholder="Wiek">
+          <input type="text" placeholder="Ranga">
+          <input type="text" placeholder="Jaką grasz pozycje">
+          <button>Szukaj</button>
+        </div>
+        <div class="d1">
+          <?php
+        require("config.php");
+        $result = $conn -> query("SELECT * FROM drużyny ");
+          $result2 = $conn ->query("SELECT * FROM informacje");
+        while ($row = $result -> fetch_assoc())
+        {
+          echo"       
+          <div class='c2'>
+          <a href='druzyna.php?team_id=".$row['id_drużyna']."'><img src='img/hobby1.jpg' alt=''></a>
+          <h3>".$row['nazwateamu']."</h3>
+        </div>";};
+        ?>
+          <!--
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+        <div class="d2">
+          <img src="img/hobby1.jpg" alt="">
+          <h3>Nazwa teamu</h3>
+          <p>Wiek</p>
+          <p>Ranga</p>
+          <p>Pozycja</p>
+        </div>
+-->
+        </div>
+      </div>
+    </section>
+    <section id="discord">
+      <div class="e1">
+        <img class="obraz" src="img/hobby1.jpg" alt="">
+        <h1>Discord</h1>
+        <p>https://discord.gg/yaQmnuUhkF</p>
+      </div>
+    </section>
+    <section id="regulamin">
+      <div class="f1 clearfix">
+        <h1>Regulamin</h1>
+        <div class="k1">
+          <h2>1.Zasady uczestnictwa w turnieju</h2>
+          <p>A. Sezony nieparzyste 1.1 Sezony nieparzyste nie mają ograniczeń rangowych, lecz w przypadku dużego zainteresowania mogą zostać podzielone na tiery. 1.2 Zawodnik może grać na tylko jednym koncie, przy czym musi ono spełniać wyżej wymienione wymagania. 1.3 Każdy kapitan ma obowiązek przedstawić zasady turnieju swojej drużynie. Każdy zawodnik zobowiązany jest do przestrzegania regulaminu, nawet w przypadku niezaznajomienia się z zasadami. 1.4 Każda drużyna może składać się maksymalnie z 8 zawodników + sztab trenerski. Pojedynczy gracz może grać w tylko jednej drużynie. Jeśli drużyna ma zamiar grać z rezerwowym graczem, nie ma obowiązku informowania przeciwnika, lecz nie może zmienić gracza zaraz po drafcie. Istnieje możliwość zmian zawodników między mapami w serii pod warunkiem, że zmiana następuje przed rozpoczęciem draftu. 1.5 Wpłacenie wpisowego zgodnie z 5 punktem regulaminu. B. Sezony parzyste 1.1 Każdy uczestnik bez wyjątków musi spełniać niżej podane wymagania, aby jego drużyna mogła brać udział w turnieju. 1.2 Turniej przeznaczony jest dla graczy z maksymalną rangą p1 (w momencie zgłoszenia drużyny). 1.3 Zawodnik może grać na tylko jednym koncie, przy czym musi ono spełniać wyżej wymienione wymagania. 1.4 Każdy kapitan ma obowiązek przedstawić zasady turnieju swojej drużynie. Każdy zawodnik zobowiązany jest do przestrzegania regulaminu, nawet w przypadku niezaznajomienia się z zasadami. 1.5 Każda drużyna może składać się maksymalnie z 8 zawodników + sztab trenerski. Pojedynczy gracz może grać w tylko jednej drużynie. Jeśli drużyna ma zamiar grać z rezerwowym graczem, nie ma obowiązku informowania przeciwnika, lecz nie może zmienić gracza zaraz po drafcie. Istnieje możliwość zmian zawodników między mapami w serii pod warunkiem, że zmiana następuje przed rozpoczęciem draftu. 1.6 Wpłacenie wpisowego zgodnie z 5 punktem regulaminu.</p>
+          <h2>2.Umawianie się | Ogłaszanie wyników | MVP
+          </h2>
+          <p>2.1 Każde spotkanie ma przypisaną konkretną datę oraz godzinę (jeśli nie ma godziny jest to z automatu godzina 19:00). Kapitanowie drużyn mogą jednak ustalić między sobą inny termin i rozegrać mecz w dowolnym wcześniejszym terminie, lub maksymalnie 28 godzin później (przykładowo jeśli termin jest ustalony na 10.11 o godzinie 15.00, drużyny za zgodą obu kapitanów mogą rozegrać mecz w dowolnym wcześniejszym terminie lub do godziny 23:00 następnego dnia wysyłając wyniki spotkania do tej godziny). Jeśli kapitanowie nie dogadają się, termin pozostaje bez zmian. O wszystkich zmianach należy poinformować administrację turnieju. 2.2 Drużyny deklarujące swój udział zobowiązane są do rozegrania meczy. W przypadku nieobecności na 3 meczach z rzędu bez żadnego usprawiedliwienia, drużyna zostaje na stałe wycofana z aktualnych rozgrywek, a jej miejsce może zająć inna drużyna. 2.3 Po przyjęciu, lub wspólnej zmianie terminu spotkania kapitanowie obu drużyn muszą potwierdzić/podać nowy termin (zgodny z podpunktem 1 punktu 2 w regulaminie) na kanale #💬┃zatwierdzone-terminy-meczów 2.4 Po rozegraniu serii należy wysłać screeny wraz z wynikiem gier na kanale #💬┃wyniki-meczów-ss-y. Do każdej mapy tytuł MVP, osobno wybrany przez drużynę (+50 pkt) i przez przeciwników (+100 pkt), w każdej mapie. (W fazie play-off od casterów +100 za całą serię).</p>
+        </div>
+        <div class="k1">
+          <h2>3. Spóźnienia | Przerwy | Pauzy</h2>
+          <p>3.1 Drużyna nie może spóźnić się więcej niż 5 minut na ustalony termin. W wypadku większych opóźnień: 6 - 10 min - utrata 3 banów 11 - 15 min - utrata pierwszych wszystkich banów + utrata 1 pauzy technicznej > 15 min - w/o na korzyść drużyny przeciwnej. W wypadku serii bo2/bo3/bo5 po upływie 15 minut drużyna spóźniona traci pierwszą mapę wraz ze wszystkimi banami oraz pauzę techniczną, na każdą kolejną mapę. Każde kolejne 5 minut skutkuje oddaniem kolejnej mapy. 3.2 Przerwy między mapami ustalają kapitanowie przed meczem. 3.3 Pauzy - każda drużyna ma do dyspozycji 2 pauzy, 1 pauza okolicznościowa oraz 1 pauzę techniczną: Pauza okolicznościowa 1 x 5 minut (pauza ta może zostać wykorzystana tylko i wyłącznie w ciągu 45 sekund po rozpoczęciu gry, ma na celu pozwolenie dołączyć każdemu zawodnikowi do rozgrywki) Pauzy techniczne 1 x 10 minut 3.4 Nie należy przerywać gier w takich momentach jak: Team fighty, walki na liniach, walki o campy. Można przerwać grę, podczas gdy jedyna atakowana osoba jest afk. 3.5 Pauzowanie po wykorzystaniu limitu lub w celu zamierzonego utrudniania gry poprzez spamowanie pauz może prowadzić do przerwania całej serii.</p>
+          <h2>4.Draft | Rozgrywka</h2>
+          <p>4.1 Drużyna ma prawo żądać użycia stron typu prodraft. W takim przypadku przeciwnicy zmuszeni są się zgodzić, a stronę przygotowywuje drużyna tworząca lobby (blue side). 4.2 W wypadku przeprowadzania draftów na stronie, drużyny zobowiązują się do banowania oraz pickowania tych samych postaci co na stronie, w dowolnej kolejności. 4.3 Drużyna o wyższym seedzie (seed 1 > seed 2) wybiera stronę. Seedy na początku rozgrywek mogą być losowane przez administrację lub może obowiązywać kolejność alfabetyczna. Później seedy zależą od zajmowanego miejsca. W terminarzu drużyna o wyższym seedzie będzie zapisywana po lewej stronie. 4.4 W bo3 oraz bo5 strona na 1 mapę jest losowana, a stronę w każdej kolejnej wybiera drużyna która przegrała poprzednią mapę.</p>
+          <h2>5. Wpisowe</h2>
+          <p>Sezon nieparzysty: 5.1 Dla pierwszych 8 drużyn: Drużyny posiadający przynajmniej jednego gracza z dywizją powyżej P1 - 15 zł Drużyny nie posiadające gracza z rangą wyższą niż P1 -10 zł (dla najlepszej drużyny z tego przedziału też jest przewidziana nagroda, bez względu na zajęte miejsce). 5.2 Dla slotów powyżej 8: +5 zł do kwot podanych powyżej (tj. 20 zł z zawodnikiem powyżej rangi P1 oraz 15 zł bez zawodnika z rangą wyższą niż P1) 5.3 Terminy i szczegóły płatności ustala Administrator za to odpowiedzialny na kanale 💬┃kapitańskie-ważne. 5.4 Drużyna, która nie ma graczy powyżej rangi P1, po wpłaceniu wpisowego nie może do swojego roasteru przygarnąć zawodnika z wyższą rangą niż P1.</p>
+        </div>
+        <div class="k1">
+          <h2>6. Nagrody</h2>
+          <p>Nagrody z sezonu 0 obowiązują tylko na główne sezony! 6.1 Pula 140 zł 6.2 Nagrody: Pierwsze miejsce 100 zł Drugie miejsce 40 zł Trzecie miejsce - MVP - Znaki -[]- zostaną zastąpione po zebraniu wpisowych od każdej z drużyn</p>
+          <h2>7.Discord</h2>
+          <p>Większa część tego punktu znajduje się w regulaminie serwera discord: https://discord.gg/s68Z34J2s3 7.1 Każda drużyna ma do dyspozycji 2 kanały, głosowy oraz tekstowy. 7.2 Każda drużyna bez wyjątków ma obowiązek być na swoim kanale podczas trwania draftu oraz meczu. 7.3 Na kanale drużynowym mogą przebywać tylko osoby z drużyny, trenerzy oraz administracja. Po zakończeniu draftu trener i osoby niebiorące udziału w grze obowiązkowo muszą się wyciszyć. 7.4 Administracja ma prawo do wchodzenia na kanał głosowy w czasie trwania meczu, lecz nie może się odzywać. 7.5 Kapitan ma obowiązek dodać administratora do ‘specta’ w lobby, gdy ten o to poprosi przed meczem. 7.6 Administracja ma prawo przesiadywać na kanałach głosowych podczas trwania serii. Nie może jednak rozprzestrzeniać informacji, które usłyszała, a zawodnicy nie mogą z nią nawiązywać kontaktu.</p>
+          <h2>8. Główne zasady</h2>
+          <p>8.1 Nieznajomość regulaminu nie zwalnia z obowiązku jego przestrzegania. 8.2 Regulamin może ulec zmianie. 8.3 Zakaz wykorzystywania luk w regulaminie. 8.4 Decydujący głos w sporze ma administracja. 8.5 Jeśli dostrzegasz błąd lub lukę w regulaminie, niezwłocznie poinformuj o tym administrację. 8.6 Jeśli nie do końca rozumiesz któryś podpunkt, zapytaj administratora. 8.7 Nieznajomość regulaminu może skutkować wyrzuceniem drużyny z turnieju. 8.8 Obowiązkiem kapitana jest przedstawienie regulaminu osobom z drużyny! 8.9 Drużyna, która odejdzie lub zostanie wyrzucona nie ma prawa żądać zwrotu kwoty wpisowej.</p>
+        </div>
+      </div>
+    </section>
+    <section id="kontakt">
+      <div class="g1 clearfix">
+        <h1>Kontakt</h1>
+        <div class="g2">
+          <img src="img/hobby1.jpg" alt="">
+          <h2>Administrator</h2>
+          <p>Tutaj możesz znaleźć możliwość skontaktowania się do administratora, który zarządza liga i spytać się jeśli coś jest nie jasne lub w innej sprawie.</p>
+          <button>Czytaj dalej</button>
+        </div>
+        <div class="g2">
+          <img src="img/hobby1.jpg" alt="">
+          <h2>Moderator</h2>
+          <p>Jeśli nie możesz stontaktować się z administratorem zapraszam do moderatora mogę pomóc jeśli jesteś zakłopotany lub czegoś nie wiesz.</p>
+          <button>Czytaj dalej</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

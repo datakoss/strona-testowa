@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: gray;
+}
+
+.first {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first div {
+  background-color: lightslategray;
+}
+
+.first button {
+  margin: 10px 70px;
+}
+
+.first a {
+  margin: 0 70px;
+  text-decoration: none;
+  color: white;
+}
+
+.second {
+  display: inline-block;
+}
